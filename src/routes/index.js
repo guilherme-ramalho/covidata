@@ -13,7 +13,7 @@ export default function Routes() {
         screenOptions={{
           headerTintColor: '#fff',
           headerStyle: {
-            backgroundColor: '#990005',
+            backgroundColor: '#438EFF',
           },
         }}
       >
