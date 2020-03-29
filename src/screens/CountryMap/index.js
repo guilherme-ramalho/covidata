@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
+
 import Spinner from '../../components/Spinner';
+import CustomMarker from '../../components/CustomMarker';
 import { Container } from '../../styles/global';
-import { Map, MapMarker } from './styles';
+import { Map } from './styles';
 
 import request from '../../services';
 
 export default function CountryMap() {
   const [stateStats, setStateStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  // This default coords will show Brazil's map
+  const [coordinates, setCoordinates] = useState({
+    latitude: -10.341705300513116,
+    longitude: -53.603127747774124,
+    latitudeDelta: 64.09047852181376,
+    longitudeDelta: 46.85033831745386,
+  });
 
   const getCountryStats = () => {
     setIsLoading(true);
@@ -22,6 +31,10 @@ export default function CountryMap() {
       .then(() => setIsLoading(false));
   };
 
+  const handleRegionChange = (region) => {
+    console.tron.log(`${region.latitude} - ${region.longitude}`);
+  };
+
   useEffect(() => {
     getCountryStats();
   }, []);
@@ -32,30 +45,14 @@ export default function CountryMap() {
         <Spinner />
       ) : (
         <Map
-          region={{
-            latitude: -9.66599,
-            longitude: -35.735,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
+          region={coordinates}
           showsUserLocation
           loadingEnabled
+          onRegionChange={handleRegionChange}
         >
-          {stateStats.map((state) => {
-            const { latitude, longitude } = state;
-
-            return (
-              <MapMarker
-                key={state.objectId}
-                coordinate={{
-                  latitude: parseFloat(latitude),
-                  longitude: parseFloat(longitude),
-                }}
-                title={state.nome}
-                description={`${state.qtd_confirmado} casos confirmados`}
-              />
-            );
-          })}
+          {stateStats.map((state) => (
+            <CustomMarker key={state.objectId} state={state} />
+          ))}
         </Map>
       )}
     </Container>
