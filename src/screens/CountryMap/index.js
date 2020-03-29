@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Spinner from '../../components/Spinner';
 import CustomMarker from '../../components/CustomMarker';
+import CasesNumbers from '../../components/CasesNumbers';
 import { Container } from '../../styles/global';
 import { Map } from './styles';
 
@@ -44,16 +45,19 @@ export default function CountryMap() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <Map
-          region={coordinates}
-          showsUserLocation
-          loadingEnabled
-          onRegionChange={handleRegionChange}
-        >
-          {stateStats.map((state) => (
-            <CustomMarker key={state.objectId} state={state} />
-          ))}
-        </Map>
+        <>
+          <CasesNumbers />
+          <Map
+            region={coordinates}
+            showsUserLocation
+            loadingEnabled
+            onRegionChange={handleRegionChange}
+          >
+            {stateStats.map((state) => (
+              <CustomMarker key={state.objectId} state={state} />
+            ))}
+          </Map>
+        </>
       )}
     </Container>
   );
