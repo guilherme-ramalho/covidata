@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native-svg';
 
 import Spinner from '../../components/Spinner';
+import PieChartLegendRow from '../../components/PieChartLegendRow';
 import { Container } from '../../styles/global';
-import { Pie, LegendContainer, CustomText } from './styles';
+import { Pie } from './styles';
 
 import request from '../../services';
 
 export default function RegionsCases() {
-  const [regionsCases, setRegionsCases] = useState([]);
+  const [regions, setRegions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getRegionsStats = () => {
@@ -16,7 +17,7 @@ export default function RegionsCases() {
 
     request({ endpoint: 'PortalRegiao' })
       .then(({ data: response }) => {
-        setRegionsCases(response.results);
+        setRegions(response.results);
       })
       .catch(() => {
         alert('Ocorreu um erro ao carregar os dados.');
@@ -25,7 +26,7 @@ export default function RegionsCases() {
   };
 
   const getChartData = () =>
-    regionsCases.map((region) => ({
+    regions.map((region) => ({
       key: region.objectId,
       amount: region.qtd,
       name: region.nome,
@@ -71,9 +72,7 @@ export default function RegionsCases() {
           >
             <Labels />
           </Pie>
-          <LegendContainer>
-            <CustomText>teste</CustomText>
-          </LegendContainer>
+          {/* <PieChartLegendRow regions={regions} /> */}
         </>
       )}
     </Container>

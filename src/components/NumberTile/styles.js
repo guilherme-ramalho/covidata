@@ -8,6 +8,7 @@ export const Container = styled.View`
   padding: 2px;
   margin: 0px 5px 5px 5px;
   justify-content: center;
+  background-color: #fff;
 `;
 
 export const NumberText = styled.Text`
