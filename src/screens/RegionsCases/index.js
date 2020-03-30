@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native-svg';
 
 import Spinner from '../../components/Spinner';
-// import PieChartLegendRow from '../../components/PieChartLegendRow';
+import PieChartLegends from '../../components/PieChartLegends';
 import { Container } from '../../styles/global';
 import { Pie } from './styles';
 
@@ -72,7 +72,7 @@ export default function RegionsCases() {
           >
             <Labels />
           </Pie>
-          {/* <PieChartLegendRow regions={regions} /> */}
+          <PieChartLegends regions={regions} />
         </>
       )}
     </Container>
