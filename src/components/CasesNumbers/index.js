@@ -45,17 +45,17 @@ export default function CasesNumbers() {
             <NumberTile
               number={casesNumbers.total_confirmado}
               title="Confirmados"
-              color="#5D78FF"
+              color="#5d78ff"
             />
             <NumberTile
               number={casesNumbers.total_obitos}
               title="Óbitos"
-              color="#FAB822"
+              color="#fab822"
             />
             <NumberTile
               number={casesNumbers.total_letalidade}
               title="Letalidade"
-              color="#FB397A"
+              color="#fb397a"
             />
           </Row>
         </>

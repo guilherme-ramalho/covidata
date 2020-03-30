@@ -29,6 +29,10 @@ export default function NavigationTabs() {
       screenOptions={({ route }) => ({
         tabBarIcon: (iconState) => getTabIcon(iconState, route),
       })}
+      tabBarOptions={{
+        activeTintColor: '#fab822',
+        inactiveTintColor: 'gray',
+      }}
     >
       <Tab.Screen name="Casos" component={CountryMap} />
       <Tab.Screen name="Regiões" component={RegionsCases} />
