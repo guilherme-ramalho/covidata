@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -8,21 +9,24 @@ export default function Routes() {
   const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerTintColor: '#fff',
-          headerStyle: {
-            backgroundColor: '#563D7C',
-          },
-        }}
-      >
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ title: 'Covidata' }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar backgroundColor="#3b2a55" />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#563d7c',
+            },
+          }}
+        >
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ title: 'Covidata' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
