@@ -3,6 +3,6 @@ import { Text } from 'react-native';
 
 // import { Container } from './styles';
 
-export default function RegionChart() {
-  return <Text>Casos por região</Text>;
+export default function AccumulatedCases() {
+  return <Text>Casos Acumulados</Text>;
 }

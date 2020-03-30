@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import CountryMap from '../../screens/CountryMap';
-import AccumulatedCasesChart from '../../screens/AccumulatedCasesChart';
-import RegionChart from '../../screens/RegionChart';
+import AccumulatedCases from '../../screens/AccumulatedCases';
+import RegionsCases from '../../screens/RegionsCases';
 
 export default function NavigationTabs() {
   const Tab = createBottomTabNavigator();
@@ -31,8 +31,8 @@ export default function NavigationTabs() {
       })}
     >
       <Tab.Screen name="Casos" component={CountryMap} />
-      <Tab.Screen name="Região" component={RegionChart} />
-      <Tab.Screen name="Acumulados" component={AccumulatedCasesChart} />
+      <Tab.Screen name="Região" component={RegionsCases} />
+      <Tab.Screen name="Acumulados" component={AccumulatedCases} />
     </Tab.Navigator>
   );
 }
