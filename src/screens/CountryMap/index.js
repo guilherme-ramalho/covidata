@@ -13,10 +13,10 @@ export default function CountryMap() {
   const [isLoading, setIsLoading] = useState(true);
   // This default coords will show Brazil's map
   const [coordinates, setCoordinates] = useState({
-    latitude: -10.341705300513116,
-    longitude: -53.603127747774124,
-    latitudeDelta: 64.09047852181376,
-    longitudeDelta: 46.85033831745386,
+    latitude: -14.42995643627933,
+    longitude: -51.63580471649766,
+    latitudeDelta: 42.344046187304706,
+    longitudeDelta: 36.84808652848006,
   });
 
   const getCountryStats = () => {
@@ -33,7 +33,7 @@ export default function CountryMap() {
   };
 
   const handleRegionChange = (region) => {
-    console.tron.log(`${region.latitude} - ${region.longitude}`);
+    console.tron.log(region);
   };
 
   useEffect(() => {
