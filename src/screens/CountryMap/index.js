@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Spinner from '../../components/Spinner';
 import CustomMarker from '../../components/CustomMarker';
@@ -8,7 +9,7 @@ import { Map } from './styles';
 
 import request from '../../services';
 
-export default function CountryMap() {
+export default function CountryMap({ navigation }) {
   const [stateStats, setStateStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   // This default coords will show Brazil's map
@@ -37,6 +38,8 @@ export default function CountryMap() {
   };
 
   useEffect(() => {
+    navigation.addListener('focus', () => getCountryStats());
+
     getCountryStats();
   }, []);
 
@@ -62,3 +65,7 @@ export default function CountryMap() {
     </Container>
   );
 }
+
+CountryMap.propTypes = {
+  navigation: PropTypes.shape().isRequired,
+};

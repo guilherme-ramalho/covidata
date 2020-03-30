@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native-svg';
+import PropTypes from 'prop-types';
 
 import Spinner from '../../components/Spinner';
 import PieChartLegends from '../../components/PieChartLegends';
@@ -8,7 +9,7 @@ import { Pie } from './styles';
 
 import request from '../../services';
 
-export default function RegionsCases() {
+export default function RegionsCases({ navigation }) {
   const [regions, setRegions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -56,7 +57,11 @@ export default function RegionsCases() {
     });
   };
 
-  useEffect(() => getRegionsStats(), []);
+  useEffect(() => {
+    navigation.addListener('focus', () => getRegionsStats());
+
+    getRegionsStats();
+  }, []);
 
   return (
     <Container>
@@ -78,3 +83,7 @@ export default function RegionsCases() {
     </Container>
   );
 }
+
+RegionsCases.propTypes = {
+  navigation: PropTypes.shape().isRequired,
+};
