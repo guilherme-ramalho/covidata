@@ -33,9 +33,9 @@ export default function CountryMap({ navigation }) {
       .then(() => setIsLoading(false));
   };
 
-  const handleRegionChange = (region) => {
-    console.tron.log(region);
-  };
+  // const handleRegionChange = (region) => {
+  //   console.tron.log(region);
+  // };
 
   useEffect(() => {
     navigation.addListener('focus', () => getCountryStats());
@@ -54,7 +54,7 @@ export default function CountryMap({ navigation }) {
             region={coordinates}
             showsUserLocation
             loadingEnabled
-            onRegionChange={handleRegionChange}
+            // onRegionChange={handleRegionChange}
           >
             {stateStats.map((state) => (
               <CustomMarker key={state.objectId} state={state} />

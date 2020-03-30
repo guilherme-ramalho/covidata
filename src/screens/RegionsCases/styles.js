@@ -5,4 +5,9 @@ export const Pie = styled(PieChart)`
   flex: 3;
 `;
 
-export const CustomText = styled.Text``;
+export const TitleText = styled.Text`
+  font-weight: bold;
+  font-size: 20px;
+  color: #4b5b65;
+  margin: 10px;
+`;

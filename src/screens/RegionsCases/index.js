@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Spinner from '../../components/Spinner';
 import PieChartLegends from '../../components/PieChartLegends';
 import { Container } from '../../styles/global';
-import { Pie } from './styles';
+import { Pie, TitleText } from './styles';
 
 import request from '../../services';
 
@@ -69,6 +69,7 @@ export default function RegionsCases({ navigation }) {
         <Spinner />
       ) : (
         <>
+          <TitleText>Casos por região</TitleText>
           <Pie
             valueAccessor={({ item }) => item.amount}
             data={getChartData()}
