@@ -23,12 +23,5 @@ export const LegendColor = styled.View`
 export const LegendText = styled.Text`
   flex: ${({ flex }) => flex || 1};
   font-weight: bold;
-  color: ${({ color }) => color};
-  /* color: #4b5b65; */
-`;
-
-export const PercentageText = styled.Text`
-  flex: 1;
-  font-weight: bold;
-  color: #5d78ff;
+  color: ${({ color }) => color || '#4b5b65'};
 `;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native-svg';
 
 import Spinner from '../../components/Spinner';
-import PieChartLegendRow from '../../components/PieChartLegendRow';
+// import PieChartLegendRow from '../../components/PieChartLegendRow';
 import { Container } from '../../styles/global';
 import { Pie } from './styles';
 

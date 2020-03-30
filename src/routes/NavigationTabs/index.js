@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import CountryMap from '../../screens/CountryMap';
-import AccumulatedCases from '../../screens/AccumulatedCases';
+// import AccumulatedCases from '../../screens/AccumulatedCases';
 import RegionsCases from '../../screens/RegionsCases';
 
 export default function NavigationTabs() {
@@ -15,8 +15,8 @@ export default function NavigationTabs() {
     switch (route.name) {
       case 'Casos':
         return <Icon name="earth" color={color} size={size} />;
-      case 'Região':
-        return <Icon name="city" color={color} size={size} />;
+      case 'Regiões':
+        return <Icon name="chart-arc" color={color} size={size} />;
       case 'Acumulados':
         return <Icon name="hospital" color={color} size={size} />;
       default:
@@ -31,8 +31,8 @@ export default function NavigationTabs() {
       })}
     >
       <Tab.Screen name="Casos" component={CountryMap} />
-      <Tab.Screen name="Região" component={RegionsCases} />
-      <Tab.Screen name="Acumulados" component={AccumulatedCases} />
+      <Tab.Screen name="Regiões" component={RegionsCases} />
+      {/* <Tab.Screen name="Acumulados" component={AccumulatedCases} /> */}
     </Tab.Navigator>
   );
 }
